@@ -14,7 +14,7 @@ export default function AboutUs(props) {
       <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
           <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">
-            ABOUT US
+            ABOUT-US
           </h1>
           <p className="text-base mt-5">
             IGNITE BUSINESS Calayst (IBC) is a team with many years of experience in
