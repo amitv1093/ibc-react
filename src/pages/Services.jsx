@@ -1,80 +1,168 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../App.css"
-import "../components/IbcFeatures/IbcFeatures"
-import Boxes from "../components/IbcFeatures/IbcFeatures";
-import IbcFeatures from "../components/IbcFeatures/IbcFeatures";
+import c from "../assests/images/c-programming.png";
+import asp from "../assests/images/asp.png";
+import java from "../assests/images/java.png";
+import sql from "../assests/images/sql.png";
+import ui from "../assests/images/UI.png";
+import ServicesProvide from "../components/ServicesProvide/ServicesProvide";
 
-
-export default function AboutUs(props) {
-
-
+export default function Services(props) {
   return (
+
     <>
-      <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
-          <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">
-            ABOUT US
-          </h1>
-          <p className="text-base mt-5">
-            IGNITE BUSINESS Calayst (IBC) is a team with many years of experience in
-            comprehensive support of companies in the area of selection and
-            recruitment of talented personnel. We are expert in training employee to
-            increase the technical skills, knowledge, productivity and efficiency to
-            perform a task in a much better way.
-          </p>
-        </div>
-
-
-
-        <section className="about_info  row mt-20">
-          <div className="col-md-6 col-md-offset-6 col-lg-6 col-lg-offset-6">
-            <div className="col-md-12" data-aos="fade-left" data-aos-duration="3500"> <span className="num">01 </span> <span
-              className="msn"><span className="top_brd">MIS</span>SION</span> <span className="ign_txt"> <img src="../assets/images/arrow.png" /> It
-                is our mission to collaborate, coach & compete. </span> </div>
-            <div className="col-md-12" data-aos="fade-left" data-aos-duration="4000"> <span className="num">02 </span> <span
-              className="msn"><span className="top_brd">VIS</span>ION</span> <span className="ign_txt"> <img src="../assets/images/arrow.png" /> We
-                want to change the perception of an industry to hire a talented resource rather than qualified resource.
-              </span> </div>
-            <div className="col-md-12" data-aos="fade-left" data-aos-duration="4500"> <span className="num">03 </span> <span
-              className="msn"><span className="top_brd">VAL</span>UE</span> <span className="ign_txt"> <img src="../assets/images/arrow.png" />
-                Innovative Creative Transparency & Integrity</span> </div>
+      <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        
+        <ServicesProvide/>
+        <div className="clearfix"></div>
+        <div className="row1">
+          <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
+            <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">PROGRAMMING</h1>
           </div>
-        </section>
+        </div>
+        <div className="row2 grid grid-cols-3  gap-4  mt-7  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
+          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in-right">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+              <img src={c} alt="error" />
+                <h4 className="font-bold text-justify">C Language</h4>
+              </div>
+              <p className="text-justify hover:text-blue-700">
+                Basic of Pop, Conditions, Loops,Array, Function, Pointers, String, Structure.
+              </p>
+            </div>
+          </div>
+          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+              <img src={asp} alt="error" />
+                <h4 className="font-bold text-justify">.NET</h4>
+              </div>
+              <p className="text-justify hover:text-blue-700">
+                Console Application, Windows, ADO.net, ASP.net, Window Service, Web Service, WCF, REST & MVC
+                5.</p>
+            </div>
+          </div>
+          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in-left">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+              <img src={java} alt="error" />
+                <h4 className="font-bold text-justify">Java</h4>
+              </div>
+              <p className="text-justify hover:text-blue-700">
+                Core Java, Adv Java</p>
+            </div>
+          </div>
 
 
 
-        <div className="bg-gray-200 flex h-100   mx-auto max-w-15xl px-2 sm:px-6 lg:px-8   flex-col items-center mt-10">
-          <IbcFeatures />
+
+          <div className="box-icon-1">
+            <div className="box-icon-top">
+            <img src={sql} alt="error" />
+              <h4 className="font-bold text-justify">Data Base</h4>
+            </div>
+            <p className="text-justify hover:text-blue-700">
+              Sql Server 2005 DDL DML
+            </p>
+          </div>
+
+          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+              <img src={ui} alt="error" />
+                <h4 className="font-bold text-justify">UI / UX </h4>
+              </div>
+              <p className="text-justify hover:text-blue-700">
+                HTML5 , CSS3 , Java Script , Jquery , Angular JS.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="clearfix"></div>
+        <div className="row1">
+          <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
+            <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">COMMUNICATION SKILLS</h1>
+          </div>
+        </div>
+        <div className="clearfix"></div>
+        <div className="row2 grid grid-cols-1  gap-4  mt-7  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-6 items-center">
+          <div className="col-md-4" data-aos="flip-left">
+            <div className="box-icon-1 padding-none">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">V</span>Verbal Communication</h4>
+              </div>
+
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="flip-up">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">B</span>Body Language</h4>
+              </div>
+
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="flip-right">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">W</span>Writing</h4>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div className="col-md-4" data-aos="flip-left">
+            <div className="box-icon-1 padding-none">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">P</span>Presentation Skills</h4>
+              </div>
+
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="flip-up">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">P</span>Public Speaking</h4>
+              </div>
+
+            </div>
+          </div>
+          <div className="col-md-4" data-aos="flip-right">
+            <div className="box-icon-1">
+              <div className="box-icon-top">
+
+                <h4><span className="box-icon-typo">E</span>Email Etiquettes</h4>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
-
-
-
-
-        <div className="bg-white-200 flex justify-center  mx-auto max-w-15xl px-2 sm:px-6 lg:px-8   flex-col items-center mt-10">
-          <h1 id="ourclients" className="text-4xl font-bold mb-4 mt-3">OUR CLIENTS</h1>
-
-
-        </div>
-
-
-
-
+        <div className="clearfix"></div>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <h1 id="what" className="text-4xl font-bold mb-4 mt-12">WHAT WE CAN DO FOR YOUR BUSINEES</h1>
+          <h1 id="what" className="text-4xl font-bold mb-4 mt-24">WHAT WE CAN DO FOR YOUR BUSINEES</h1>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10">
             CONTACT US
           </button>
         </div>
-        <div className="clearfix"></div>
-
+      </div >
+      <div className="clearfix"></div>
+           <div className='pt-22'>
 
 
         {/* Start Footer  */}
         <footer className="bg-white">
-          <div className="mt-10 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="mx-auto mt-10 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
             <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
@@ -118,10 +206,14 @@ export default function AboutUs(props) {
 
 
       </div>
+
     </>
-  );
+
+
+  )
 }
 
-AboutUs.propTypes = {};
 
 
+
+Services.propTypes = {};

@@ -6,8 +6,8 @@ import reverseLogo from "../assests/images/ibc-logo-reverse.png";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About IBC", href: "/aboutus", current: false },
-  { name: "Services", href: "#", current: false },
-  { name: "Contact Us", href: "#", current: false },
+  { name: "Services", href: "/Services", current: false },
+  { name: "Contact Us", href: "/ContactUs", current: false },
 ];
 
 function classNames(...classes) {
