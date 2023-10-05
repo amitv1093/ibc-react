@@ -6,7 +6,7 @@ import './AppCarousel.scss';
 
 function AppCarousel (props) {
   return (
-    <Carousel className="carousel_wrapper" autoPlay="true" infiniteLoop="true" emulateTouch="true" showThumbs="false">
+    <Carousel className="carousel_wrapper">
       <div>
         <img src="https://placehold.co/600x400" alt="Carousel" />
       </div>
