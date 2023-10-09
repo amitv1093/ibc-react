@@ -7,6 +7,8 @@ import reverseLogo from "../assests/images/ibc-logo-reverse.png";
 
 import React, { useState } from "react";
 import { auth, provider } from './firebase'
+import "./login.css"
+
 
 
 const navigation = [
@@ -107,6 +109,11 @@ export default function Header() {
 
 
 
+
+
+
+
+                      {/* --- OldGoogleLogin---- */}
                       {/* <GoogleLogin
                           onSuccess={(credentialResponse) => {
                             console.log(credentialResponse);
@@ -116,6 +123,10 @@ export default function Header() {
                           }}
                           useOneTap
                         /> */}
+
+
+
+                      {/* ---NewGoogleLogin---- */}
                       <div className="login-wrapper">
                         {isUserLoggedIn && (
                           <div className="welcome-wrapper">
@@ -157,10 +168,9 @@ export default function Header() {
                       </div>
 
 
-
-
-
                     </div>
+
+
                     <Transition
                       as={Fragment}
                       enter="transition ease-out duration-100"

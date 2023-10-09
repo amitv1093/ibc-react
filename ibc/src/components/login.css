@@ -1,0 +1,34 @@
+.login-wrapper,
+.welcome-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background: #64afff;
+  border: 1px solid #6359ff;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.profile-picture {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  margin: 0 20px 0 0;
+  max-width: 50px;
+  width: 100%;
+}
+
+.welcome-text {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 16px;
+  text-transform: capitalize;
+}
