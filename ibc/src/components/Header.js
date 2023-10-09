@@ -14,6 +14,14 @@ const navigation = [
   { name: "About IBC", href: "/aboutus", current: false },
   { name: "Services", href: "/Services", current: false },
   { name: "Contact Us", href: "/ContactUs", current: false },
+
+
+
+
+  // <Link to="/">Home</Link>
+  // <Link to="/aboutus">About IBC</Link>
+  // <Link to="/Services">Services</Link>
+  // <Link to="ContactUs">Contact Us</Link>
 ];
 
 function classNames(...classes) {

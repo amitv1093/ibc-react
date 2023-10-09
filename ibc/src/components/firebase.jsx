@@ -3,14 +3,14 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB8QZ9-hU14NqyrgP_-j_PD7Q5vRX2Z9hk",
-  authDomain: "auth-81693.firebaseapp.com",
-  databaseURL: "https://auth-81693.firebaseio.com",
-  projectId: "auth-81693",
-  storageBucket: "auth-81693.appspot.com",
-  messagingSenderId: "856730303472",
-  appId: "1:856730303472:web:7c4fb023e3ba6276157b35",
-  measurementId: "G-4C95ZWTRB1"
+  apiKey: "AIzaSyCtozMHWCVpRIbf08hOIz5k7tRw1ftB4xY",
+  authDomain: "prj-ibc.firebaseapp.com",
+  databaseURL: "https://prj-ibc-default-rtdb.firebaseio.com",
+  projectId: "prj-ibc",
+  storageBucket: "prj-ibc.appspot.com",
+  messagingSenderId: "774653224004",
+  appId: "1:774653224004:web:b3b27805d54f684d598811",
+  measurementId: "G-SD1SM3LKGH"
 };
 
 

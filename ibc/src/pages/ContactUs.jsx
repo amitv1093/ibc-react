@@ -1,105 +1,95 @@
-import React from 'react'
-import "../App.css"
+import React from 'react';
+import "../App.css";
+// import React, { useState, useEffect, FC } from 'react';
+import { useState } from 'react'
 
 
 export default function ContactUs() {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <>
+
+      <div>
+        <p>{user.name}</p>
+        <input
+          type="text"
+          name="name"
+          value={user.name}
+          onChange={handleChange}
+          placeholder="Name" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
+
       <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="row">
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
             <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">CONTACT US</h1>
           </div>
         </div>
-        <div className="grid gap-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <h4 id='ourAddress' className="mt-16 text-2xl  tracking-tight text-gray-900 text-left">OUR ADDRESS</h4>
-            <h5 className="mt-5 text-base  tracking-tight text-gray-700 text-left">If you have any questions about the services we provide simply use the form
-              below. We try and respond to all queries
-              and comments within 24 hours.</h5>
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-7">
-              <h6 id='address' className="mb-2 text-2xl  tracking-tight text-gray-900 text-justify">Address &amp; Direction:</h6>
-              <p className='mt-0 text-gray-700 text-justify'>Please see the below map</p>
-            </div>
-
-
-            <p className='text-base flex tracking-tight text-gray-400 text-left mt-7'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#C20000" className="w-5 h-5">
-              <path fillRule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clipRule="evenodd" />
-            </svg>
-              <a href="#" className='hover:text-red-500 ...  ml-2'>Shop No. 05, Zia Apartment, 264 Bellasis
-                Road, Nagpada, Mumbai-400 008</a></p>
-
-
-            <p className='text-base flex tracking-tight text-gray-400 text-left mt-7'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#1EE547" className="w-5 h-5">
-              <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clipRule="evenodd" />
-            </svg>
-              <a href="tel:09867622683" className="hover:text-green-500 ... ml-2">+91-9867622683</a>
-            </p>
-
-            <p className='text-base flex tracking-tight text-gray-400 text-left mt-7'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#1E88E5" className="w-5 h-5">
-              <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
-              <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
-            </svg>
-              <a href="mailto:ignitebcatalyst@gmail.com" className="hover:text-blue-500 ... ml-2">ignitebcatalyst@gmail.com </a>
-            </p>
-          </div>
-
-
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <h4 id='getIn' className="mt-16 text-2xl  tracking-tight text-gray-900 text-left">GET IN TOUCH</h4>
-
-            <div className="mt-5 sm:mx-auto sm:w-full">
-              <form className="space-y-6" action="#" method="POST">
-                <div>
-                  <div className="name">
-                    <input id="name" type="text" placeholder='  Name' required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                  </div>
-                </div>
-                <div>
-                  <div className="email">
-                    <input id="email" type="email" placeholder='  Email' required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                  </div>
-                </div>
-                <div>
-                  <div className="subject">
-                    <input id="subject" type="text" placeholder='  Subject' required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                  </div>
-                </div>
-                <div>
-                  <div className="phone">
-                    <input id="phone" type="phone" placeholder='  Phone Number' required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                  </div>
-                </div>
-                <div>
-                  <div className="message">
-                    <textarea id="message" type="text" placeholder='  Message' cols="100" rows="4" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                  </div>
-                </div><div>
-                  <button type="submit" className="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit</button>
-                </div>
-              </form>
+      </div>
+      <section className="py-6 mt-10 dark:bg-gray-800 dark:text-gray-50">
+        <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
+          <div className="py-6 md:py-0 md:px-6">
+            <h1 className="text-4xl font-bold">Get in touch</h1>
+            <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
+            <div className="space-y-4">
+              <p className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-2 sm:mr-6">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
+                </svg>
+                <span>Fake address, 9999 City</span>
+              </p>
+              <p className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-2 sm:mr-6">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                <span>123456789</span>
+              </p>
+              <p className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-2 sm:mr-6">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                <span>contact@business.com</span>
+              </p>
             </div>
           </div>
+          <form noValidate="" className="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
+            <label className="block">
+              <span className="mb-1">Full name</span>
+              <input type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800" 
+                 />
+            </label>
+            <label className="block">
+              <span className="mb-1">Email address</span>
+              <input type="email" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800" value={user.email}
+                onChange={handleChange}/>
+            </label>
+            <label className="block">
+              <span className="mb-1">Message</span>
+              <textarea rows="3" className="block w-full rounded-md focus:ring focus:ri focus:ri dark:bg-gray-800" value={user.message}
+                onChange={handleChange}></textarea>
+            </label>
+            <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ri dark:bg-violet-400 dark:text-gray-900 focus:ri hover:ri">Submit</button>
+          </form>
         </div>
-      </div>
+      </section>
 
-      <div>
-      <div className="map mt-20" >
-        <iframe
-          className="absolute  w-full "
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12080.73732861526!2d-74.0059418!3d40.7127847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMDA2JzEwLjAiTiA3NMKwMjUnMzcuNyJX!5e0!3m2!1sen!2sus!4v1648482801994!5m2!1sen!2sus"
-          frameBorder={0}
-          style={{ border: 0 }}
-          allowFullScreen=""
-          aria-hidden="false"
-          tabIndex={0}
-        ></iframe>
-      </div>
-      <div className="clearfix pt-56"></div>
-      <div className='pt-40'>
-        {/* Start Footer  */}
-        <footer className="bg-white">
-          <div className="mx-auto mt-20 w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    {/* Start Footer  */}
+    <footer className="bg-white">
+          <div className="mx-auto mt-10 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
             <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">
@@ -142,8 +132,6 @@ export default function ContactUs() {
         </footer>
 
 
-      </div>
-      </div>
 
     </>
 
