@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import React, { useState } from "react";
 import { auth, provider } from './firebase'
-import "./login.css"
+
 
 
 
@@ -35,8 +35,9 @@ export default function Header() {
 
 const navigate = useNavigate();
 const navigateToHome = () =>{
-  navigate(<Link to="/"></Link>)
-}
+  navigate("/")
+};
+
 
   return (
     <>

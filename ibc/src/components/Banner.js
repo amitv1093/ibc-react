@@ -2,10 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import RotatingSpans from "./RotatingSpans/RotatingSpans";
 import Button from "./Button/Button";
+import { useNavigate } from "react-router-dom";
+
 
 function Banner(props) {
-  const handleClick = () => {
-    console.log("Button clicked!");
+
+
+  const navigate = useNavigate();
+  const navigateToContactUs = () => {
+    navigate('/ContactUs')
   };
 
   return (
@@ -23,7 +28,7 @@ function Banner(props) {
         much better way.
       </p>
       <div className="text-left mt-5">
-        <Button text="Contact Us" onClick={handleClick} />
+        <Button text="Contact Us" onClick={navigateToContactUs} />
       </div>
     </div>
   );

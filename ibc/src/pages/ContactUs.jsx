@@ -193,7 +193,7 @@ export default function ContactUs() {
           <div className='pt-40'>
             {/* Start Footer  */}
             <footer className="bg-white">
-              <div className="mx-auto mt-20 w-full max-w-screen-xl p-4 py-6 lg:py-8">
+              <div className="mx-auto mt-2 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
                 <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">

@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../App.css"
 import "../components/IbcFeatures/IbcFeatures"
 import Boxes from "../components/IbcFeatures/IbcFeatures";
 import IbcFeatures from "../components/IbcFeatures/IbcFeatures";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AboutUs(props) {
 
+  const navigate = useNavigate();
+  const navigateToContactUs = () => {
+    navigate('/ContactUs')
+  };
 
   return (
     <>
@@ -89,17 +93,17 @@ export default function AboutUs(props) {
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <h1 id="what" className="text-4xl font-bold mb-4 mt-12">WHAT WE CAN DO FOR YOUR BUSINEES</h1>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" onClick={navigateToContactUs}>
             CONTACT US
           </button>
         </div>
-        <div className="clearfix"></div>
+        
 
 
 
         {/* Start Footer  */}
         <footer className="bg-white">
-          <div className="mt-10 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="mt-2 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
             <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
             <div className="sm:flex sm:items-center sm:justify-between">

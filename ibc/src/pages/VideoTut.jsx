@@ -83,7 +83,7 @@ const VideoTut = () => {
                 <span className="description text-sm block py-2 border-gray-400 mb-2">{user.description}</span>
               </div>
             </div>
-            <div className='mb-12'><VideoModal videoUrl={user.videoUrl} /></div>
+            <div className='mb-5'><VideoModal videoUrl={user.videoUrl} /></div>
           </div>
           
         ))}
@@ -91,7 +91,7 @@ const VideoTut = () => {
       <div>
         {/* Start Footer  */}
         <footer className="bg-gray">
-              <div className="mx-auto mt-20 w-full max-w-screen-xl p-4 py-6 lg:py-8">
+              <div className="mx-auto mt-2 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
                 <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">

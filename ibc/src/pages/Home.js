@@ -13,18 +13,11 @@ function Home(props) {
           <AppCarousel></AppCarousel>
         </div>
       </div>
-      <div className="grid sm:grid-cols-4 md:grid-cols-3 xl:grid-cols-4 gap-4 items-center mt-10">
-        <div className="bg-black py-5"></div>
-
-        <div className="bg-black py-5"></div>
-
-        <div className="bg-black py-5"></div>
-        <div className="bg-black py-5"></div>
-      </div>
+      
       <div className="">
         {/* Start Footer  */}
         <footer className="bg-white">
-              <div className="mx-auto mt-20 w-full max-w-screen-xl p-4 py-6 lg:py-8">
+              <div className="mx-auto mt-2 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
                 <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">

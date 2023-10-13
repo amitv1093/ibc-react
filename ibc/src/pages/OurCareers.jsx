@@ -45,7 +45,7 @@ export default function OurCareers() {
                         We see our people as long-term relationships that we build together and from which we all grow. We invest in them across the duration of their career and encourage them to strive for perpetual progress
                     </p>
                 </section>
-                <section className="bg-white rounded-lg shadow-lg p-8 mb-8 ">
+                <section className="bg-white rounded-lg shadow-lg p-8 mb-1">
                     <h2 className="text-2xl font-bold mb-4 underline decoration-blue-500">APPLY NOW</h2>
                     <form onSubmit={handleSubmit} className='mt-12'>
                         <div className="mb-4">
