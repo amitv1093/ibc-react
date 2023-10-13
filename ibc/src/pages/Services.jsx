@@ -12,80 +12,71 @@ export default function Services(props) {
 
     <>
       <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        
-        <ServicesProvide/>
+
+        <ServicesProvide />
         <div className="clearfix"></div>
         <div className="row1">
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-            <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">PROGRAMMING</h1>
+            <h1 id="aboutus" className="mt-20 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">PROGRAMMING</h1>
           </div>
         </div>
-        <div className="row2 grid grid-cols-3  gap-4  mt-7  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
-          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in-right">
-            <div className="box-icon-1">
-              <div className="box-icon-top">
-              <img src={c} alt="error" />
-                <h4 className="font-bold text-justify">C Language</h4>
-              </div>
-              <p className="text-justify hover:text-blue-700">
-                Basic of Pop, Conditions, Loops,Array, Function, Pointers, String, Structure.
-              </p>
-            </div>
-          </div>
-          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in">
-            <div className="box-icon-1">
-              <div className="box-icon-top">
-              <img src={asp} alt="error" />
-                <h4 className="font-bold text-justify">.NET</h4>
-              </div>
-              <p className="text-justify hover:text-blue-700">
-                Console Application, Windows, ADO.net, ASP.net, Window Service, Web Service, WCF, REST & MVC
-                5.</p>
-            </div>
-          </div>
-          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in-left">
-            <div className="box-icon-1">
-              <div className="box-icon-top">
-              <img src={java} alt="error" />
-                <h4 className="font-bold text-justify">Java</h4>
-              </div>
-              <p className="text-justify hover:text-blue-700">
-                Core Java, Adv Java</p>
-            </div>
+
+
+        <div className="row2 holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-11 gap-10 space-x-6 ">
+
+
+          <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
+            <img src={c} alt="error" className="w-24" />
+            <h4 className="font-bold text-justify">C Language</h4>
+            <p className="text-justify">
+              Basic of Pop, Conditions, Loops,Array, Function, Pointers, String, Structure.
+            </p>
           </div>
 
+          <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
+            <img src={asp} alt="error" className="w-24" />
+            <h4 className="font-bold text-justify">.NET</h4>
+            <p className="text-justify">
+              Console Application, Windows, ADO.net, ASP.net, Window Service, Web Service, WCF, REST & MVC
+              5..
+            </p>
+          </div>
 
+          <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
+            <img src={java} alt="error" className="w-24" />
+            <h4 className="font-bold text-justify">Java</h4>
+            <p className="text-justify">
+              Core Java, Adv Java
+            </p>
+          </div>
 
-
-          <div className="box-icon-1">
-            <div className="box-icon-top">
-            <img src={sql} alt="error" />
-              <h4 className="font-bold text-justify">Data Base</h4>
-            </div>
-            <p className="text-justify hover:text-blue-700">
+          <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
+            <img src={sql} alt="error" className="w-24" />
+            <h4 className="font-bold text-justify">Data Base</h4>
+            <p className="text-justify">
               Sql Server 2005 DDL DML
             </p>
           </div>
 
-          <div className="col-sm-6 col-md-4 text-left" data-aos="zoom-in">
-            <div className="box-icon-1">
-              <div className="box-icon-top">
-              <img src={ui} alt="error" />
-                <h4 className="font-bold text-justify">UI / UX </h4>
-              </div>
-              <p className="text-justify hover:text-blue-700">
-                HTML5 , CSS3 , Java Script , Jquery , Angular JS.
-              </p>
-            </div>
+          <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 ">
+            <img src={ui} alt="error" className="w-24" />
+            <h4 className="font-bold text-justify">UI / UX</h4>
+            <p className="text-justify">
+              HTML5 , CSS3 , Java Script , Jquery , Angular JS.
+            </p>
           </div>
+
         </div>
-        <div className="clearfix"></div>
+
+
+
+
         <div className="row1">
           <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-            <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">COMMUNICATION SKILLS</h1>
+            <h1 id="aboutus" className="mt-20 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">COMMUNICATION SKILLS</h1>
           </div>
         </div>
-        <div className="clearfix"></div>
+       
         <div className="row2 grid grid-cols-1  gap-4  mt-7  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-6 items-center">
           <div className="col-md-4" data-aos="flip-left">
             <div className="box-icon-1 padding-none">
@@ -148,8 +139,8 @@ export default function Services(props) {
         </div>
 
         <div className="clearfix"></div>
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <h1 id="what" className="text-4xl font-bold mb-4 mt-24">WHAT WE CAN DO FOR YOUR BUSINEES</h1>
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-28">
+          <h1 id="what" className="text-4xl font-bold mb-4">WHAT WE CAN DO FOR YOUR BUSINEES</h1>
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10">
             CONTACT US
@@ -157,7 +148,7 @@ export default function Services(props) {
         </div>
       </div >
       <div className="clearfix"></div>
-           <div className='pt-22'>
+      <div className='pt-22'>
 
 
         {/* Start Footer  */}

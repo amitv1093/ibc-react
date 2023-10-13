@@ -43,7 +43,8 @@ export default function ServicesProvide(props) {
                     <h1 id="aboutus" className="mt-16 text-4xl font-bold tracking-tight text-gray-900 text-center border-b-4 border-black ">SERVICES WE PROVIDE</h1>
                 </div>
             </div>
-            <div className="grid grid-cols-3  gap-4  mt-7  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
+            <div className="gap-6  mt-7  holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                                                                     
                 {arrayboxescard}
             </div>
 

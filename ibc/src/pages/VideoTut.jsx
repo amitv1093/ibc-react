@@ -1,29 +1,96 @@
-import React from "react";
-import PropTypes from "prop-types";
-import logo from "../assests/images/ibc-logo-blue.png";
-import AppCarousel from "../components/AppCarousel/AppCarousel";
-import Banner from "../components/Banner";
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+import VideoModal from './VideoModal';
 
-function Home(props) {
+
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyCtozMHWCVpRIbf08hOIz5k7tRw1ftB4xY',
+  authDomain: 'prj-ibc.firebaseapp.com',
+  databaseURL: 'https://prj-ibc-default-rtdb.firebaseio.com',
+  projectId: 'prj-ibc',
+  storageBucket: 'prj-ibc.appspot.com',
+  messagingSenderId: '774653224004',
+  appId: '1:774653224004:web:b3b27805d54f684d598811',
+  measurementId: 'G-SD1SM3LKGH',
+};
+
+
+// if (!firebase.apps.length) {
+//   firebase.initializeApp(firebaseConfig);
+// }
+firebase.initializeApp(firebaseConfig);
+
+
+
+const VideoTut = () => {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      firebase.database().ref('Video_Tutorials').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          console.log(data)
+          const userList = Object.values(data);
+          setUsers(userList);
+        }
+      });
+    };
+
+    fetchData();
+
+    return () => {
+      firebase.database().ref('Video_Tutorials').off();
+    };
+  }, []);
+
+
+
+
+
+
   return (
-    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-        <Banner></Banner>
-        <div>
-          <AppCarousel></AppCarousel>
-        </div>
-      </div>
-      <div className="grid sm:grid-cols-4 md:grid-cols-3 xl:grid-cols-4 gap-4 items-center mt-10">
-        <div className="bg-black py-5"></div>
+    <>
 
-        <div className="bg-black py-5"></div>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: "\n  body {background-color: rgb(209 213 219); !important;}\n"
+        }}
+      />
 
-        <div className="bg-black py-5"></div>
-        <div className="bg-black py-5"></div>
+      <div className="heading text-center  m-5  ms-30 my-10 text-5xl font-extrabold underline decoration-green-700 hover:decoration-pink-700">
+        <span className="animate-pulse bg-gradient-to-r from-pink-700 via-green-700 to-violet-900 bg-clip-text text-transparent"> Video Tutorials </span>
       </div>
-      <div className="">
+
+
+      <div className="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        {users.map((user, i) => (
+          <div key={i}>
+            <div className="each mb-10 m-2 shadow-2xl border-gray-800 bg-gray-100 relative transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-100 duration-300 ">
+              <img className="w-full" src={user.thumbnailUrl} alt=""/>
+              <div className="badge absolute top-0 right-0 bg-red-500 m-1 text-gray-200 p-1 px-2 text-xs font-bold rounded">Live</div>
+              <div className="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300">
+                <span className="mr-1 p-1 px-2 font-bold">105 Watching</span>
+                <span className="mr-1 p-1 px-2 font-bold border-l border-gray-400">105 Likes</span>
+                <span className="mr-1 p-1 px-2 font-bold border-l border-gray-400">105 Dislikes</span>
+              </div>
+              <div className="desc p-4 text-gray-800">
+                <a href={user.videoUrl} target="_new" className="title font-bold block cursor-pointer hover:underline">{user.title}</a>
+                <a href={user.videoUrl} target="_new" className="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">{user.id}</a>
+                <span className="description text-sm block py-2 border-gray-400 mb-2">{user.description}</span>
+              </div>
+            </div>
+            <div className='mb-12'><VideoModal videoUrl={user.videoUrl} /></div>
+          </div>
+          
+        ))}
+      </div>
+      <div>
         {/* Start Footer  */}
-        <footer className="bg-white">
+        <footer className="bg-gray">
               <div className="mx-auto mt-20 w-full max-w-screen-xl p-4 py-6 lg:py-8">
 
                 <hr className="my-6 sm:mx-auto dark:border-black lg:my-8" />
@@ -67,10 +134,11 @@ function Home(props) {
             </footer>
 
       </div>
-    </div>
+    </>
+
   );
-}
+};
 
-Home.propTypes = {};
+export default VideoTut;
 
-export default Home;
+
