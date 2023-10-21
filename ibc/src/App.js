@@ -1,45 +1,41 @@
-import "./App.css";
-import Header from "./components/Header";
+import { useState } from "react";
+import { imgDB } from "./pages/firebaseUpload";
+import { txtDB } from "./pages/firebaseUpload";
+import { v4 } from "uuid";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { addDoc, collection } from "firebase/firestore";
 
-// ROUTER
-// import { BrowserRouter } from "react-router-dom";
-// import { RouterConfig } from "./navigation/RouteConfig";
-
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound"
-import AboutUs from "./pages/AboutUs"
-import Services from "./pages/Services"
-import ContactUs from "./pages/ContactUs"
-import VideoTut from "./pages/VideoTut";
-import OurCareers from "./pages/OurCareers";
+export default function StoreImageTextFirebase(){
+  const [txt,setTxt] = useState('')
+  const [img,setImg] = useState('')
 
 
 
+  const handleUpload = (e) =>{
+    console.log(e.target.files[0])
+    const imgs = ref(imgDB,`Imgs/${v4()}`)
+    uploadBytes(imgs,e.target.files[0]).then(data=>{
+      console.log(data,"imgs")
+      getDownloadURL(data.ref).then(val=>{
+        setImg(val)
+      })
+    }) 
+  }
 
 
-export default function App() {
-  return (
-    <div className="App">
-      
-      <Router>
-      <Header className="App-header"></Header>
-       <Routes>
-          <Route exact path="/" element={<Home/>}></Route>
-          <Route path="/AboutUs" element={<AboutUs/>}></Route>
-          <Route path="/NotFound" element={<NotFound/>}></Route>
-          <Route path="/Services" element={<Services/>}></Route>
-          <Route path="/ContactUs" element={<ContactUs/>}></Route>
-          <Route path="/VideoTut" element={<VideoTut/>}></Route>
-          <Route path="/OurCareers" element={<OurCareers/>}></Route>
-        </Routes>
-      </Router>
+  const handleClick = async () => {
+    const valRef = collection(txtDB,`txtData`)
+    await addDoc(valRef,{txtVal:txt,imgUrl:img})
+    alert("Data added Successfully")
+  }
 
-
-
+  return(
+    <div>
+      <input type="text" onChange={(e)=>setTxt(e.target.value)} /><br/>
+      <input type="file" onChange={(e)=>handleUpload(e)} /><br/>
+      <button onClick={handleClick}>Submit</button>
     </div>
-  );
+  )
 }
 
 
@@ -50,6 +46,87 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useful //
+
+// import "./App.css";
+// import Header from "./components/Header";
+
+// // ROUTER
+// // import { BrowserRouter } from "react-router-dom";
+// // import { RouterConfig } from "./navigation/RouteConfig";
+
+
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Home from "./pages/Home";
+// import NotFound from "./pages/NotFound"
+// import AboutUs from "./pages/AboutUs"
+// import Services from "./pages/Services"
+// import ContactUs from "./pages/ContactUs"
+// import VideoTut from "./pages/VideoTut";
+// import OurCareers from "./pages/OurCareers";
+
+
+
+
+
+// export default function App() {
+//   return (
+//     <div className="App">
+      
+//       <Router>
+//       <Header className="App-header"></Header>
+//        <Routes>
+//           <Route exact path="/" element={<Home/>}></Route>
+//           <Route path="/AboutUs" element={<AboutUs/>}></Route>
+//           <Route path="/NotFound" element={<NotFound/>}></Route>
+//           <Route path="/Services" element={<Services/>}></Route>
+//           <Route path="/ContactUs" element={<ContactUs/>}></Route>
+//           <Route path="/VideoTut" element={<VideoTut/>}></Route>
+//           <Route path="/OurCareers" element={<OurCareers/>}></Route>
+//         </Routes>
+//       </Router>
+
+
+
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  useless ,dont use//
 
 // import "./App.css";
 // import Home from "./pages/Home";
@@ -72,76 +149,3 @@ export default function App() {
 
 // export default App;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useState } from "react";
-// import logo from "./logo.svg";
-// import "./App.css";
-// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-// import { googleLogout } from "@react-oauth/google";
-
-// function App() {
-
-//   const handleLogout = () => {
-  
-//     googleLogout();
-
-//     setTimeout(() => {
-//       console.log("called");
-//       window.location.href = "/logout";
-//     }, 5000);
-//   };
-
-//   return (
-//     <GoogleOAuthProvider clientId="774653224004-a55gvh5ptoo4kdld00sdbr5davipiv43.apps.googleusercontent.com">
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-
-//         <GoogleLogin
-//           onSuccess={(credentialResponse) => {
-//             console.log(credentialResponse);
-//           }}
-//           onError={() => {
-//             console.log("Login Failed");
-//           }}
-//           useOneTap
-//         />
-//       </div>
-//       <button onClick={handleLogout}>Logout</button>
-//     </GoogleOAuthProvider>
-//   );
-// }
-
-// export default App;
