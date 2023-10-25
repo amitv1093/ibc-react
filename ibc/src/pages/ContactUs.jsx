@@ -1,24 +1,7 @@
 import "../App.css"
 import React, { useState,useEffect } from 'react';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/database';
-import { nanoid } from 'nanoid'
-
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyCtozMHWCVpRIbf08hOIz5k7tRw1ftB4xY",
-  authDomain: "prj-ibc.firebaseapp.com",
-  databaseURL: "https://prj-ibc-default-rtdb.firebaseio.com",
-  projectId: "prj-ibc",
-  storageBucket: "prj-ibc.appspot.com",
-  messagingSenderId: "774653224004",
-  appId: "1:774653224004:web:b3b27805d54f684d598811",
-  measurementId: "G-SD1SM3LKGH",
-};
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+import { nanoid } from 'nanoid';
+import { db, firestore } from '../services/firebaseInit'; 
 
 
 export default function ContactUs() {
@@ -29,23 +12,22 @@ export default function ContactUs() {
   const [message, setMessage] = useState('');
 
 
-// //fetch
-//   const [users, setUsers] = useState([]);
-//   useEffect(() => {
-//     const fetchData = () => {
-//       firebase.database().ref('Users').on('value', (snapshot) => {
-//         const data = snapshot.val();
-//         if (data) {
-//           const userList = Object.values(data);
-//           setUsers(userList);
-//         }
-//       });
-//     };
-//     fetchData();
-//     return () => {
-//       firebase.database().ref('Users').off();
-//     };
-//   }, []);
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const fetchData = () => {
+      db.ref('Users').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const userList = Object.values(data);
+          setUsers(userList);
+        }
+      });
+    };
+    fetchData();
+    return () => {
+      db.ref('Users').off();
+    };
+  }, []);
 
 
 
@@ -63,9 +45,9 @@ export default function ContactUs() {
         message: message,
 
       };
-      firebase.database().ref('Users').child(userId).set(user);
+      db.ref('Users').child(userId).set(user);
 
-      firebase.database().ref('Users').push(user)
+      db.ref('Users').push(user)
         .then(() => {
           alert('Employee details saved successfully');
           setName('');

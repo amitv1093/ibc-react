@@ -2,48 +2,36 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import reverseLogo from "../assests/images/ibc-logo-reverse.png";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
-// import { GoogleLogin } from "@react-oauth/google";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { auth, provider  } from '../services/firebaseInit';
 
 import React, { useState } from "react";
-import { auth, provider } from './firebase'
-
-
-
-
-// const navigation = [
-//   { name: "Home", href: "/", current: true },
-//   { name: "About IBC", href: "/AboutUs", current: false },
-//   { name: "Services", href: "/Services", current: false },
-//   { name: "Contact Us", href: "/ContactUs", current: false },
-//   { name: "Video Tutorialt", href: "/VideoTut", current: false },
-//   { name: "Our Careers", href: "/OurCareers", current: false },
-// ];
+const navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "About IBC", href: "/AboutUs", current: false },
+  { name: "Services", href: "/Services", current: false },
+  { name: "Contact Us", href: "/ContactUs", current: false },
+  { name: "Video Tutorialt", href: "/VideoTut", current: false },
+  { name: "Our Careers", href: "/OurCareers", current: false },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 export default function Header() {
   const [userDetails, setUserDetails] = useState({});
   const [isUserLoggedIn, setUserAuthStatus] = useState(false);
 
-
-const navigate = useNavigate();
-const navigateToHome = () =>{
-  navigate("/")
-};
-
+  const navigate = useNavigate();
+  const navigateToHome = () => {
+    navigate("/");
+  };
 
   return (
     <>
-
       {/* <GoogleOAuthProvider clientId="774653224004-a55gvh5ptoo4kdld00sdbr5davipiv43.apps.googleusercontent.com"> */}
-
 
       <Disclosure as="nav" className="bg-gray-800 ">
         {({ open }) => (
@@ -60,17 +48,19 @@ const navigateToHome = () =>{
                       <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
-
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
-                  <Link to="/"> <img
-                      src={reverseLogo}
-                      title="Ignite Business Catalyst"
-                      className="block h-8 w-auto "
-                      alt="Ignite Business Catalyst"
-                    /></Link>
-                   
+                    <Link to="/">
+                      {" "}
+                      <img
+                        src={reverseLogo}
+                        title="Ignite Business Catalyst"
+                        className="block h-8 w-auto "
+                        alt="Ignite Business Catalyst"
+                      />
+                    </Link>
+
                     {/* <img
                       src={reverseLogo}
                       title="Ignite Business Catalyst"
@@ -78,33 +68,13 @@ const navigateToHome = () =>{
                       alt="Ignite Business Catalyst"
                     /> */}
                   </div>
- 
-
-
 
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
-
-                  <Link className="bg-gray-900  text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/AboutUs">About IBC</Link>
-                  <Link className="bg-gray-900  text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/Services">Services</Link>
-                  <Link className="bg-gray-900  text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/ContactUs">Contact Us</Link>
-                 {isUserLoggedIn ? <Link className="bg-gray-900  text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/VideoTut">Video Tutorial</Link>:""}
-                  <Link className="bg-gray-900  text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/OurCareers">Our Careers</Link>
-                 
-                    </div>
-                    </div>
-
-                  
-                 
-                
-
-
-                  {/* <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex space-x-4">
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={classNames(
                             item.current
                               ? "bg-gray-900 text-white"
@@ -114,10 +84,10 @@ const navigateToHome = () =>{
                           aria-current={item.current ? "page" : undefined}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
-                  </div> */}
+                  </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* <button
@@ -140,12 +110,6 @@ const navigateToHome = () =>{
                         />
                       </Menu.Button>
 
-
-
-
-
-
-
                       {/* --- OldGoogleLogin---- */}
                       {/* <GoogleLogin
                           onSuccess={(credentialResponse) => {
@@ -157,17 +121,19 @@ const navigateToHome = () =>{
                           useOneTap
                         /> */}
 
-
-
                       {/* ---NewGoogleLogin---- */}
                       <div className="login-wrapper ml-5">
                         {isUserLoggedIn && (
                           <div className="welcome-wrapper">
                             <span
                               className="profile-picture"
-                              style={{ backgroundImage: `url(${userDetails.photoURL})` }}
+                              style={{
+                                backgroundImage: `url(${userDetails.photoURL})`,
+                              }}
                             />
-                            <h6 className="welcome-text">Welcome, {userDetails.name}!</h6>
+                            <h6 className="welcome-text">
+                              Welcome, {userDetails.name}!
+                            </h6>
                           </div>
                         )}
                         <button
@@ -177,35 +143,31 @@ const navigateToHome = () =>{
                             if (isUserLoggedIn) {
                               setUserDetails({});
                               setUserAuthStatus(false);
-                              navigate('/');
-                            }
-                             else {
+                              navigate("/");
+                            } else {
                               auth
                                 .signInWithPopup(provider)
-                                .then(res => {
-                                  const { displayName, email, photoURL } = res.user;
+                                .then((res) => {
+                                  const { displayName, email, photoURL } =
+                                    res.user;
                                   const userInfo = {
                                     photoURL,
                                     email,
-                                    name: displayName
+                                    name: displayName,
                                   };
                                   setUserDetails(userInfo);
                                   setUserAuthStatus(true);
-                                 
 
                                   return res;
                                 })
-                                .catch(err => err);
+                                .catch((err) => err);
                             }
                           }}
-                         >
+                        >
                           {isUserLoggedIn ? "Logout" : "Google Login"}
                         </button>
                       </div>
-
-
                     </div>
-
 
                     <Transition
                       as={Fragment}
@@ -215,7 +177,7 @@ const navigateToHome = () =>{
                       leave="transition ease-in duration-75"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
-                     >
+                    >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
@@ -263,7 +225,7 @@ const navigateToHome = () =>{
               </div>
             </div>
 
-            {/* <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {navigation.map((item) => (
                   <Disclosure.Button
@@ -282,7 +244,7 @@ const navigateToHome = () =>{
                   </Disclosure.Button>
                 ))}
               </div>
-            </Disclosure.Panel> */}
+            </Disclosure.Panel>
           </>
         )}
       </Disclosure>
@@ -290,21 +252,6 @@ const navigateToHome = () =>{
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { Fragment } from "react";
 // import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -317,8 +264,6 @@ const navigateToHome = () =>{
 // import React, { useState } from "react";
 // import { auth, provider } from './firebase'
 // import "./login.css"
-
-
 
 // const navigation = [
 //   { name: "Home", href: "/", current: true },
@@ -333,7 +278,6 @@ const navigateToHome = () =>{
 //   return classes.filter(Boolean).join(" ");
 // }
 
-
 // export default function Header() {
 //   const [userDetails, setUserDetails] = useState({});
 //   const [isUserLoggedIn, setUserAuthStatus] = useState(false);
@@ -342,7 +286,6 @@ const navigateToHome = () =>{
 //     <>
 
 //       {/* <GoogleOAuthProvider clientId="774653224004-a55gvh5ptoo4kdld00sdbr5davipiv43.apps.googleusercontent.com"> */}
-
 
 //       <Disclosure as="nav" className="bg-gray-800">
 //         {({ open }) => (
@@ -417,12 +360,6 @@ const navigateToHome = () =>{
 //                         />
 //                       </Menu.Button>
 
-
-
-
-
-
-
 //                       {/* --- OldGoogleLogin---- */}
 //                       {/* <GoogleLogin
 //                           onSuccess={(credentialResponse) => {
@@ -433,8 +370,6 @@ const navigateToHome = () =>{
 //                           }}
 //                           useOneTap
 //                         /> */}
-
-
 
 //                       {/* ---NewGoogleLogin---- */}
 //                       <div className="login-wrapper ml-5">
@@ -477,9 +412,7 @@ const navigateToHome = () =>{
 //                         </button>
 //                       </div>
 
-
 //                     </div>
-
 
 //                     <Transition
 //                       as={Fragment}
