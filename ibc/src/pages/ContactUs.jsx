@@ -4,6 +4,9 @@ import { nanoid } from 'nanoid';
 import { db, firestore } from '../services/firebaseInit'; 
 
 
+
+
+
 export default function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,7 +18,7 @@ export default function ContactUs() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const fetchData = () => {
-      db.ref('Users').on('value', (snapshot) => {
+      db.ref(`ContactUs_Page`).on('value', (snapshot) => {
         const data = snapshot.val();
         if (data) {
           const userList = Object.values(data);
@@ -25,7 +28,7 @@ export default function ContactUs() {
     };
     fetchData();
     return () => {
-      db.ref('Users').off();
+      db.ref(`ContactUs_Page`).off();
     };
   }, []);
 
@@ -45,11 +48,11 @@ export default function ContactUs() {
         message: message,
 
       };
-      db.ref('Users').child(userId).set(user);
+      db.ref(`ContactUs_Page`).child(userId).set(user);
 
-      db.ref('Users').push(user)
+      db.ref(`ContactUs_Page`).push(user)
         .then(() => {
-          alert('Employee details saved successfully');
+          alert('Your details saved successfully');
           setName('');
           setEmail('');
           setSubject('');

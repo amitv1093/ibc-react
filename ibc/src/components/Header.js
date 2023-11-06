@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import reverseLogo from "../assests/images/ibc-logo-reverse.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { auth, provider  } from '../services/firebaseInit';
+import { auth, provider } from '../services/firebaseInit';
 
 import React, { useState } from "react";
 const navigation = [
@@ -15,6 +15,7 @@ const navigation = [
   { name: "Video Tutorialt", href: "/VideoTut", current: false },
   { name: "Our Careers", href: "/OurCareers", current: false },
 ];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -60,13 +61,6 @@ export default function Header() {
                         alt="Ignite Business Catalyst"
                       />
                     </Link>
-
-                    {/* <img
-                      src={reverseLogo}
-                      title="Ignite Business Catalyst"
-                      className="hidden h-8 w-auto lg:block"
-                      alt="Ignite Business Catalyst"
-                    /> */}
                   </div>
 
                   <div className="hidden sm:ml-6 sm:block">
@@ -167,7 +161,20 @@ export default function Header() {
                           {isUserLoggedIn ? "Logout" : "Google Login"}
                         </button>
                       </div>
+
+
+                      <Link to="/Login">
+                      <div className="login-wrapper ml-5">
+                        <button
+                          className="btn"
+                          type="button"
+                        >
+                          Login/Signup
+                        </button>
+                      </div>
+                      </Link>
                     </div>
+                   
 
                     <Transition
                       as={Fragment}

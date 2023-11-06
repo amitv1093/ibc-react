@@ -1,50 +1,34 @@
 import React, { useState } from "react";
-import { storage, firestore } from '../services/firebaseInit'; 
-import { v4 } from "uuid";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+
+import { firestore } from '../services/firebaseInit';
 import { addDoc, collection } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from "../services/firebaseInit";
+
+
+
+
+const handleCreateNewListing = async (name, email, resume) => {
+  const resumeRef = ref(storage, `uploads/resumes/${Date.now()}-${resume.name}`);
+  const uploadResume = await uploadBytes(resumeRef, resume);
+  return await addDoc(collection(firestore, `Career`), {
+    name,
+    email,
+    resumeURL: uploadResume.ref.fullPath,
+  });
+};
 
 export default function OurCareers() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [resume, setResume] = useState(null);
-  const [txt, setTxt] = useState("");
-  const [img, setImg] = useState("");
+  const [resume, setResume] = useState("");
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleResumeChange = (e) => {
-    setResume(e.target.files[0]);
-  };
-
-  const handleUpload = (e) => {
-    console.log(e.target.files[0]);
-    const imgs = ref(storage, `Imgs/${v4()}`); 
-    uploadBytes(imgs, e.target.files[0]).then((data) => {
-      console.log(data, "imgs");
-      getDownloadURL(data.ref).then((val) => {
-        setImg(val);
-      });
-    });
-  };
-
-  const handleClick = async () => {
-    const valRef = collection(firestore, `txtData`);
-    await addDoc(valRef, { txtVal: txt, imgUrl: img });
-    alert("Data added Successfully");
-  };
-
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    alert("Your details saved successfully")
     e.preventDefault();
-    console.log(name, email, resume);
+    await handleCreateNewListing(name, email, resume);
   };
+
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -95,7 +79,7 @@ export default function OurCareers() {
                 id="name"
                 className="border border-gray-300 rounded-md py-2 px-4 w-full"
                 value={name}
-                onChange={handleNameChange}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
@@ -111,7 +95,7 @@ export default function OurCareers() {
                 id="email"
                 className="border border-gray-300 rounded-md py-2 px-4 w-full"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -122,13 +106,11 @@ export default function OurCareers() {
               >
                 Resume:
               </label>
-              <input type="text" onChange={(e) => setTxt(e.target.value)} />
-
-              <input type="file" onChange={(e) => handleUpload(e)} />
+              <input type="file" onChange={(e) => setResume(e.target.files[0])}
+                required />
             </div>
             <button
               type="submit"
-              onClick={handleClick}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2
               px-4 rounded"
             >

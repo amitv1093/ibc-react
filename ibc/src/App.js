@@ -1,39 +1,3 @@
-// import { useState } from "react";
-// import { imgDB } from "./pages/firebaseUpload";
-// import { txtDB } from "./pages/firebaseUpload";
-// import { v4 } from "uuid";
-// import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-// import { addDoc, collection } from "firebase/firestore";
-
-// export default function StoreImageTextFirebase(){
-//   const [txt,setTxt] = useState('')
-//   const [img,setImg] = useState('')
-
-//   const handleUpload = (e) =>{
-//     console.log(e.target.files[0])
-//     const imgs = ref(imgDB,`Imgs/${v4()}`)
-//     uploadBytes(imgs,e.target.files[0]).then(data=>{
-//       console.log(data,"imgs")
-//       getDownloadURL(data.ref).then(val=>{
-//         setImg(val)
-//       })
-//     })
-//   }
-
-//   const handleClick = async () => {
-//     const valRef = collection(txtDB,`txtData`)
-//     await addDoc(valRef,{txtVal:txt,imgUrl:img})
-//     alert("Data added Successfully")
-//   }
-
-//   return(
-//     <div>
-//       <input type="text" onChange={(e)=>setTxt(e.target.value)} /><br/>
-//       <input type="file" onChange={(e)=>handleUpload(e)} /><br/>
-//       <button onClick={handleClick}>Submit</button>
-//     </div>
-//   )
-// }
 
 //useful
 
@@ -52,6 +16,9 @@ import Services from "./pages/Services";
 import ContactUs from "./pages/ContactUs";
 import VideoTut from "./pages/VideoTut";
 import OurCareers from "./pages/OurCareers";
+import Login from "./components/Login";
+import SignUp from "./components/Signup";
+import ForgatPwd from "./components/ForgatPwd";
 
 export default function App() {
   return (
@@ -66,11 +33,20 @@ export default function App() {
           <Route path="/ContactUs" element={<ContactUs />}></Route>
           <Route path="/VideoTut" element={<VideoTut />}></Route>
           <Route path="/OurCareers" element={<OurCareers />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Signup" element={<SignUp />}></Route>
+          <Route path="/ForgatPwd" element={<ForgatPwd/>}></Route>
         </Routes>
       </Router>
     </div>
   );
 }
+
+
+
+
+
+
 
 //  useless ,dont use//
 
