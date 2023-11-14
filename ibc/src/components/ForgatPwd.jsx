@@ -19,7 +19,7 @@ export default function ForgatPwd() {
 
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
-                <div className="bg-white p-10 rounded-3xl shadow-2xl">
+                <div id='box' className="bg-white p-10 rounded-3xl shadow-2xl">
                     <p className='w-96 text-left'>Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</p>
                     <form onSubmit={handleSubmit} className='mt-8'>
                         <div className="mb-4">
