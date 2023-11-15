@@ -1,69 +1,97 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+// mysql and validation used
 import { useState } from 'react';
-import axios from 'axios';
-import Validation from './Signupvalidation';
-
-
-
-
+import { Link } from 'react-router-dom';
+import Validation from "./Signupvalidation";
 
 
 
 
 const SignUp = () => {
 
-    const [values, setValues] = useState({
+    const [inpval, setINP] = useState({
         name: '',
         email: '',
         password: ''
     })
-    const navigate = useNavigate();
+
     const [errors, setErrors] = useState({})
 
-    const handleInput = (event) => {
-        setValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
+    const setdata = (e) => {
+        console.log(e.target.value);
+        const { name, value } = e.target;
+        setINP((preval) => {
+            return {
+                ...preval,
+                [name]: value
+            }
+        })
     }
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const err = Validation(values);
+    const addinpdata = async (e) => {
+        e.preventDefault();
+        const err = Validation(inpval);
         setErrors(err);
-        if (err.name === "" && err.email === "" && err.password === "") {
-            axios.post('https://localhost:3307/signup', values)
-                .then(res => {
-                    navigate('/Login');
-                })
-                .catch(err => console.log(err));
+
+
+        const { name, email, password } = inpval;
+
+
+        const res = await fetch("/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name, email, password
+            })
+        });
+
+
+        const data = await res.json();
+        console.log(data);
+
+        if (res.status === 422 || !data) {
+            console.log("error ");
+        } else {
+            console.log("data added")
         }
     }
-
-
-
 
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div id='box' className="bg-white p-12 rounded-3xl shadow-2xl">
                 <h2 className="text-2xl font-bold mb-10">User Registration</h2>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div className="mb-4">
                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-600">Name</label>
-                        <input onChange={handleInput} type="text" id="name" name='name' className="w-full px-20 py-2 border border-gray-300 rounded" />
+                        <input
+                            value={inpval.name}
+                            onChange={setdata}
+                            type="text" id="name" name='name' className="w-full px-20 py-2 border border-gray-300 rounded"
+                        />
                         {errors.name && <span className='text-red-500'> {errors.name}</span>}
                     </div>
                     <div className="mb-4">
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-600">Email</label>
-                        <input onChange={handleInput} type="email" id="email" name='email' className="w-full px-20 py-2 border border-gray-300 rounded" />
+                        <input
+                            value={inpval.email}
+                            onChange={setdata}
+                            type="email" id="email" name='email' className="w-full px-20 py-2 border border-gray-300 rounded"
+                        />
                         {errors.email && <span className='text-red-500'> {errors.email}</span>}
                     </div>
                     <div className="mb-4">
                         <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-600">Password</label>
-                        <input onChange={handleInput} type="password" id="password" name='password' className="w-full px-20 py-2 border border-gray-300 rounded" />
+                        <input
+                            value={inpval.password}
+                            onChange={setdata}
+                            type="password" id="password" name='password' className="w-full px-20 py-2 border border-gray-300 rounded"
+                        />
                         {errors.password && <span className='text-red-500'> {errors.password}</span>}
                     </div>
-                    <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Sign Up</button>
+                    <button onClick={addinpdata} type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Sign Up</button>
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Already have an account{' '}
@@ -78,27 +106,8 @@ const SignUp = () => {
     );
 };
 
+
 export default SignUp;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
