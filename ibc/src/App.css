@@ -39,7 +39,7 @@
 
 /* about us start */
 #aboutus,#whyibc,#ourclients,#what{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  /* font-family:Georgia, 'Times New Roman', Times, serif; */
 }
 /* about us end */
 
@@ -48,7 +48,7 @@
 
 /* contact us start*/
 #ourAddress ,#address,#getIn{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  /* font-family:Georgia, 'Times New Roman', Times, serif; */
 }
 /* contact us end */
 
@@ -222,7 +222,7 @@
 
 .box-icon-1 .box-icon-top > h4 {
   text-transform: uppercase;
-  font-family: "Bebas Neue";
+  /* font-family: "Bebas Neue"; */
   position: relative;
 }
 

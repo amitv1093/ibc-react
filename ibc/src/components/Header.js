@@ -12,7 +12,7 @@ const navigation = [
   { name: "About IBC", href: "/AboutUs", current: false },
   { name: "Services", href: "/Services", current: false },
   { name: "Contact Us", href: "/ContactUs", current: false },
-  { name: "Video Tutorialt", href: "/VideoTut", current: false },
+  { name: "Video Tutorial", href: "/VideoTut", current: false },
   { name: "Our Careers", href: "/OurCareers", current: false },
 ];
 

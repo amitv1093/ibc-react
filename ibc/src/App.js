@@ -1,4 +1,3 @@
-
 //useful
 
 import "./App.css";
@@ -10,6 +9,7 @@ import Header from "./components/Header";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
@@ -35,18 +35,14 @@ export default function App() {
           <Route path="/OurCareers" element={<OurCareers />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Signup" element={<SignUp />}></Route>
-          <Route path="/ForgatPwd" element={<ForgatPwd/>}></Route>
+          <Route path="/ForgatPwd" element={<ForgatPwd />}></Route>
         </Routes>
+        <Footer />
       </Router>
+      
     </div>
   );
 }
-
-
-
-
-
-
 
 //  useless ,dont use//
 

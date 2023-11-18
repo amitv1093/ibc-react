@@ -2,13 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import './AppCarousel.scss';
-import idea from "../../assests/images/idea.png"
-import idea2 from "../../assests/images/idea2.png"
+import "./AppCarousel.scss";
+import idea from "../../assests/images/idea.png";
+import idea2 from "../../assests/images/idea2.png";
 
-function AppCarousel (props) {
+function AppCarousel(props) {
   return (
-    <Carousel className="carousel_wrapper">
+    <Carousel
+      className="carousel_wrapper"
+      autoPlay
+      interval="3000"
+      transitionTime="3000"
+      infiniteLoop
+      showThumbs={false}
+    >
       <div>
         <img src={idea} alt="Carousel" />
       </div>
