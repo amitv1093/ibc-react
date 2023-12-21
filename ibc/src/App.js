@@ -27,15 +27,16 @@ export default function App() {
         <Header className="App-header"></Header>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route path="/AboutUs" element={<AboutUs />}></Route>
-          <Route path="/NotFound" element={<NotFound />}></Route>
-          <Route path="/Services" element={<Services />}></Route>
-          <Route path="/ContactUs" element={<ContactUs />}></Route>
-          <Route path="/VideoTut" element={<VideoTut />}></Route>
-          <Route path="/OurCareers" element={<OurCareers />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
-          <Route path="/Signup" element={<SignUp />}></Route>
-          <Route path="/ForgatPwd" element={<ForgatPwd />}></Route>
+          <Route exact path="/react" element={<Home />}></Route>
+          <Route path="/react/AboutUs" element={<AboutUs />}></Route>
+          <Route path="/react/NotFound" element={<NotFound />}></Route>
+          <Route path="/react/Services" element={<Services />}></Route>
+          <Route path="/react/ContactUs" element={<ContactUs />}></Route>
+          <Route path="/react/VideoTut" element={<VideoTut />}></Route>
+          <Route path="/react/OurCareers" element={<OurCareers />}></Route>
+          <Route path="/react/Login" element={<Login />}></Route>
+          <Route path="/react/Signup" element={<SignUp />}></Route>
+          <Route path="/react/ForgatPwd" element={<ForgatPwd />}></Route>
         </Routes>
         <Footer />
       </Router>
