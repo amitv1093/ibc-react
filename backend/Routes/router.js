@@ -1,5 +1,4 @@
 //for api 
-
 const express = require("express");
 const router = new express.Router();
 const conn = require("../db/conn");
@@ -10,18 +9,18 @@ router.post("/create", (req, res) => {
 
     // console.log(req.body);
 
-    const { name, email, password } = req.body;
+    const { name, email, subject, phone, message } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !subject || !phone || !message) {
         res.status(422).json("Plz fill the all data")
     }
 
     try {
-        conn.query("SELECT *FROM signup WHERE email = ?", email, (err, result) => {
+        conn.query("SELECT *FROM contactus WHERE email = ?", email, (err, result) => {
             if (result.length) {
                 res.status(422).json("This Data is Already Exist")
             } else {
-                conn.query("INSERT INTO signup SET ?", { name, email, password }, (err, result) => {
+                conn.query("INSERT INTO contactus SET ?", { name, email, subject, phone, message }, (err, result) => {
                     if (err) {
                         console.log("err" + err);
                     } else {
