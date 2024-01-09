@@ -10,7 +10,7 @@ function Banner(props) {
 
   const navigate = useNavigate();
   const navigateToContactUs = () => {
-    navigate('/ContactUs')
+    navigate('/react/ContactUs')
   };
 
   return (

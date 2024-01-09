@@ -39,7 +39,7 @@ const Login = () => {
                     <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Login</button>
                 </form>
                 <p className="mt-7 text-center text-sm text-gray-500">
-                    <Link to="/ForgatPwd" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <Link to="/react/ForgatPwd" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 
                         Forgot your password?
 
@@ -47,7 +47,7 @@ const Login = () => {
                 </p>
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Don’t have an account{' '}
-                    <Link to="/Signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <Link to="/react/Signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 
                         Click to Sign Up
 

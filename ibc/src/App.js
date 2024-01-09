@@ -26,7 +26,6 @@ export default function App() {
       <Router>
         <Header className="App-header"></Header>
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/react" element={<Home />}></Route>
           <Route path="/react/AboutUs" element={<AboutUs />}></Route>
           <Route path="/react/NotFound" element={<NotFound />}></Route>

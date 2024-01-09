@@ -1,0 +1,58 @@
+{
+  "101": {
+    "description": "This is a modified video description.",
+    "id": 101,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "My video title",
+    "videoUrl": "https://youtu.be/qYR5ah3LAdA?si=BRNIdW-Ct1x_mckH"
+  },
+  "102": {
+    "description": "This is my video description.",
+    "id": 102,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a modified video title",
+    "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY"
+  },
+  "201": {
+    "description": "This is a new video description.",
+    "id": 201,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY"
+  },
+  "202": {
+    "description": "This is a new video description.",
+    "id": 202,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/x50aeKceZwM"
+  },
+  "250": {
+    "description": "This is a new video description.",
+    "id": 250,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY"
+  },
+  "251": {
+    "description": "This is a new video description.",
+    "id": 251,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/x50aeKceZwM"
+  },
+  "301": {
+    "description": "This is a new video description.",
+    "id": 301,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/tgbNymZ7vqY"
+  },
+  "302": {
+    "description": "This is a new video description.",
+    "id": 302,
+    "thumbnailUrl": "https://picsum.photos/640/360",
+    "title": "This is a new video title",
+    "videoUrl": "https://www.youtube.com/embed/x50aeKceZwM"
+  }
+}

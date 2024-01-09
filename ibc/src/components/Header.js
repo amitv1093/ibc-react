@@ -26,7 +26,7 @@ export default function Header() {
 
   const navigate = useNavigate();
   const navigateToHome = () => {
-    navigate("/");
+    navigate("/react");
   };
 
   return (
@@ -134,7 +134,7 @@ export default function Header() {
                             if (isUserLoggedIn) {
                               setUserDetails({});
                               setUserAuthStatus(false);
-                              navigate("/");
+                              navigate("/react/VideoTut");
                             } else {
                               auth
                                 .signInWithPopup(provider)
@@ -159,7 +159,7 @@ export default function Header() {
                         </button>
                       </div>
 
-                      <Link to="/Login">
+                      <Link to="/react/Login">
                         <div className="login-wrapper ml-5">
                           <button className="btn" type="button">
                             Login/Signup
@@ -270,6 +270,8 @@ export default function Header() {
     </>
   );
 }
+
+
 
 // import { Fragment } from "react";
 // import { Disclosure, Menu, Transition } from "@headlessui/react";
