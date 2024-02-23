@@ -1,11 +1,7 @@
-//useful
-
 import "./App.css";
 import Header from "./components/Header";
 
-// ROUTER
-// import { BrowserRouter } from "react-router-dom";
-// import { RouterConfig } from "./navigation/RouteConfig";
+
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -44,25 +40,4 @@ export default function App() {
   );
 }
 
-//  useless ,dont use//
 
-// import "./App.css";
-// import Home from "./pages/Home";
-// import Header from "./components/Header";
-
-// // ROUTER
-// import { BrowserRouter } from "react-router-dom";
-// import { RouterConfig } from "./navigation/RouteConfig";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header className="App-header"></Header>
-//       <BrowserRouter>
-//         <RouterConfig />
-//       </BrowserRouter>
-//     </div>
-//   );
-// }
-
-// export default App;

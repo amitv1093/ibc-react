@@ -72,3 +72,12 @@ const VideoModal = ({ videoUrl }) => {
 };
 
 export default VideoModal;
+
+
+
+
+
+
+
+
+

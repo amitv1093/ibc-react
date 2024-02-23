@@ -16,13 +16,12 @@ const FirebaseContext = createContext(null);
 const firebaseConfig = {
   apiKey: "AIzaSyB_Vcs3wry5EZAnlVDrBIdG3uk0HogOsyc",
   authDomain: "ibc-project-397e1.firebaseapp.com",
-  databaseURL: "https://ibc-project-397e1-default-rtdb.firebaseio.com",
+  databaseURL:"https://ibc-project-397e1-default-rtdb.firebaseio.com/",
   projectId: "ibc-project-397e1",
   storageBucket: "ibc-project-397e1.appspot.com",
   messagingSenderId: "984964084845",
   appId: "1:984964084845:web:9200d0db695fb4a6bcfb64",
-  measurementId: "G-E5SE7Y4V71",
-  
+  measurementId: "G-E5SE7Y4V71"
 };
 
 const app = firebase.initializeApp(firebaseConfig);
