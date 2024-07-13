@@ -10,7 +10,7 @@ function Banner(props) {
 
   const navigate = useNavigate();
   const navigateToContactUs = () => {
-    navigate('/react/ContactUs')
+    navigate('react/ContactUs')
   };
 
   return (
@@ -28,7 +28,8 @@ function Banner(props) {
         much better way.
       </p>
       <div className="text-left mt-5">
-        <Button text="Contact Us" onClick={navigateToContactUs} />
+        {/* <Button text="Contact Us" onClick={navigateToContactUs} /> */}
+        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10" href="/react/ContactUs">Contact Us</a>
       </div>
     </div>
   );

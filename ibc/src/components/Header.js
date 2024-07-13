@@ -159,7 +159,7 @@ export default function Header() {
                         </button>
                       </div>
 
-                      <Link to="/react/Login">
+                      <Link to="react/Login">
                         <div className="login-wrapper ml-5">
                           <button className="btn" type="button">
                             Login/Signup

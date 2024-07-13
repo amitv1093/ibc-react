@@ -42,7 +42,7 @@ const SignUp = () => {
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Already have an account{' '}
-                    <Link to="/react/Login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <Link to="react/Login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 
                         Click to Login
 

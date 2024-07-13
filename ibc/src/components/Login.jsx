@@ -1,27 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useFirebase } from '../services/firebaseInit';
-
-
-
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useFirebase } from "../services/firebaseInit";
 
 const Login = () => {
-    const firebase = useFirebase();
+  const firebase = useFirebase();
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log("Login in a user.....");
-        const result = await firebase.signinUserWithEmailAndPass(email, password);
-        console.log("Successfull", result);
-        alert("Successfull Login")
-    };
-
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Login in a user.....");
+    const result = await firebase.signinUserWithEmailAndPass(email, password);
+    console.log("Successfull", result);
+    alert("Successfull Login");
+  };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -39,7 +33,7 @@ const Login = () => {
                     <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Login</button>
                 </form>
                 <p className="mt-7 text-center text-sm text-gray-500">
-                    <Link to="/react/ForgatPwd" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <Link to="/ForgatPwd" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 
                         Forgot your password?
 
@@ -47,15 +41,21 @@ const Login = () => {
                 </p>
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Don’t have an account{' '}
-                    <Link to="/react/Signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <Link to="/Signup" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 
                         Click to Sign Up
 
-                    </Link>
-                </p>
-            </div>
-        </div>
-    );
+                    </Link> */}
+          <a
+            class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            href="/react/Signup"
+          >
+            Click to Sign Up
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Login;
